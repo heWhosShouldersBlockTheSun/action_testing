@@ -68,22 +68,22 @@ RUN apt-get install libsimde-dev
 #ENV DATAPATH="/RNAstructure/data_tables/"
 #ENV PATH="$PATH:/RNAstructure/exe/"
 
-ENV ZIP=bowtie2-2.4.5-source.zip
-ENV URL=https://sourceforge.net/projects/bowtie-bio/files/bowtie2/2.4.5/bowtie2-2.4.5-source.zip/download/
-ENV FOLDER=bowtie2-2.4.5-source
-ENV SOURCE=bowtie2-2.4.5
-ENV DST=deps
-ENV BT2=$PATH:$DST/$FOLDER/
-RUN mkdir $DST
+#ENV ZIP=bowtie2-2.4.5-source.zip
+#ENV URL=https://sourceforge.net/projects/bowtie-bio/files/bowtie2/2.4.5/bowtie2-2.4.5-source.zip/download/
+#ENV FOLDER=bowtie2-2.4.5-source
+#ENV SOURCE=bowtie2-2.4.5
+#ENV DST=deps
+#ENV BT2=$PATH:$DST/$FOLDER/
+#RUN mkdir $DST
 
 
-RUN wget -q $URL -O $DST/$ZIP && \
-    unzip $DST/$ZIP -d $DST && \
-    rm $DST/$ZIP && \
-    cd $DST/$SOURCE && \
-    make
-    #mv $DST/$FOLDER/* /bin 
-ENV PATH="$PATH:/deps/bowtie2-2.4.5"
+#RUN wget -q $URL -O $DST/$ZIP && \
+#    unzip $DST/$ZIP -d $DST && \
+#    rm $DST/$ZIP && \
+#    cd $DST/$SOURCE && \
+#    make
+#    #mv $DST/$FOLDER/* /bin 
+#ENV PATH="$PATH:/deps/bowtie2-2.4.5"
 
 ARG SAMTOOLSVER=1.16.1
 RUN wget https://github.com/samtools/samtools/releases/download/${SAMTOOLSVER}/samtools-${SAMTOOLSVER}.tar.bz2 && \
@@ -99,7 +99,7 @@ ENV LC_ALL=C
 RUN conda install -c bioconda fastqc
 #RUN git clone https://github.com/shenwei356/seqkit
 
-RUN wget wget https://go.dev/dl/go1.20.3.${TARGETOS}-${TARGETARCH}.tar.gz
+RUN wget https://go.dev/dl/go1.20.3.${TARGETOS}-${TARGETARCH}.tar.gz
 
 #RUN tar -zxf go1.20.3.linux-arm64.tar.gz -C deps/ && mv deps/go/bin/* bin/
 RUN tar -zxf go1.20.3.${TARGETOS}-${TARGETARCH}.tar.gz -C /usr/local
