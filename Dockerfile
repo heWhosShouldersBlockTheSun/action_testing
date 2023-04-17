@@ -4,7 +4,9 @@
 
 
 FROM busybox:latest
+
 ARG TARGETOS
+ARG TARGETARCH
 
 RUN echo "its right here ${TARGETOS}"
 COPY --chmod=755 <<EOF /app/run.sh
