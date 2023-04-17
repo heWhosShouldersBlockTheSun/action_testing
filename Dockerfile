@@ -97,10 +97,20 @@ RUN tar -zxf go1.20.3.${TARGETOS}-${TARGETARCH}.tar.gz -C /usr/local
 #ENV PATH="$PATH:deps/go/bin" 
 ENV PATH="$PATH:/usr/local/go/bin" 
 RUN git clone https://github.com/shenwei356/seqkit 
+#RUN go get -v -u github.com/shenwei356/seqkit/seqkit
 
-#ENV GOROOT="deps/"
-RUN cd seqkit/seqkit && go build main.go
-#ENV PATH="$PATH:seqkit/seqkit"
+RUN cd seqkit/seqkit && go build
+ENV PATH="$PATH:seqkit/seqkit"
+
+
+
+
+#RUN cd dreem && \ 
+#pip install . 
+
+
+
+
 
 
 
