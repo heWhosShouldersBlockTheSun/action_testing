@@ -9,6 +9,7 @@ ARG TARGETOS
 ARG TARGETARCH
 
 RUN echo "its right here ${TARGETOS}"
+RUN echo "its right here ${TARGETARCH}"
 COPY --chmod=755 <<EOF /app/run.sh
 #!/bin/sh
 while true; do
